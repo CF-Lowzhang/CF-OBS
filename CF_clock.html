@@ -8,7 +8,7 @@
 
 <body translate="no" >
   <div id="output" style=""></div>
-  <div id="output2" style=""></div>
+  <div id="output2"> '遺念S1 - Day1' </div>
   
   <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
   <script>
@@ -33,7 +33,6 @@ var c;
 setInterval(
 c = function() {
     output.innerText = moment().format(urlParams["format"] || '');
-    output2.innerText = '遺念S1 - Day1';
 }, 1000);
 c();
 
