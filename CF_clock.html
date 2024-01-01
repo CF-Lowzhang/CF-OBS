@@ -17,8 +17,8 @@
 		color: lightgray; 
 		border-radius: 10px; 
 		background-color: rgba(0, 0, 0, 0.75);
-		letter-spacing :1px;
-		padding :2px 4px;
+		letter-spacing: 1px;
+		padding: 2px 4px;
 		line-height:50px;
 	  ">
   </div>
@@ -41,9 +41,7 @@ var urlParams;
 })();
 
 var output = document.getElementById("output");
-var output2 = document.getElementById("output2");
 if (urlParams["style"]) output.setAttribute("style", urlParams["style"]);
-if (urlParams["style"]) output2.setAttribute("style", urlParams["style"]);
 if (urlParams["bodyStyle"]) document.body.setAttribute("style", urlParams["bodyStyle"]);
 
 var c;
