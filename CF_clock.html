@@ -3,17 +3,15 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>A simple clock</title>
+  <title>Crystal Fall Clock</title>
 </head>
 
 <body translate="no" >
-  <div id="output"
-       style=	""> 
-  </div>
+  <div id="output" style=""></div>
+  <div id="output2" style=""></div>
   
   <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
   <script>
-// https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
 var urlParams;
 (function () {
     var match,
@@ -35,6 +33,7 @@ var c;
 setInterval(
 c = function() {
     output.innerText = moment().format(urlParams["format"] || '');
+    output2.innerText = '遺念S1 - Day1';
 }, 1000);
 c();
 
