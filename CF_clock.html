@@ -7,7 +7,19 @@
 </head>
 
 <body translate="no" >
-  <div id="output" style=""></div><div id="output2" style =""></div>
+  <div id="output" 
+       style=	"display: inline-block;
+		font-family: monospace;
+		font-size: 30px;
+		text-align: right;
+		color: lightgray; 
+		border-radius: 10px; 
+		padding: 10px; 
+		background-color: rgba(0, 0, 0, 0.75);">
+  </div>
+
+
+  
   <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
   <script>
 var urlParams;
@@ -33,7 +45,6 @@ var c;
 setInterval(
 c = function() {
     output.innerText = moment().format(urlParams["format"] || '');
-    output2.innerText = '遺念S1 Day1';
 }, 1000);
 c();
 
