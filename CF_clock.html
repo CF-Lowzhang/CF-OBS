@@ -8,7 +8,7 @@
 
 <body translate="no" >
   <div id="output" style=""></div>
-  
+  <div id="output2" style =""></div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
   <script>
 var urlParams;
@@ -25,13 +25,16 @@ var urlParams;
 })();
 
 var output = document.getElementById("output");
+var output2 = document.getElementById("output2");
 if (urlParams["style"]) output.setAttribute("style", urlParams["style"]);
+if (urlParams["style"]) output2.setAttribute("style", urlParams["style"]);
 if (urlParams["bodyStyle"]) document.body.setAttribute("style", urlParams["bodyStyle"]);
 
 var c;
 setInterval(
 c = function() {
-    output.innerText = moment().format(urlParams["format"] || '遺念S1 - Day1');
+    output.innerText = moment().format(urlParams["format"] || '');
+    output2.innerText = 遺念S1 Day1;
 }, 1000);
 c();
 
