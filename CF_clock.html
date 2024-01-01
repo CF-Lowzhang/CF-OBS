@@ -9,13 +9,18 @@
 <body translate="no" >
   <div id="output" 
        style=	"display: inline-block;
+	  	border-style:solid;
+		font: bold;
 		font-family: monospace;
-		font-size: 30px;
-		text-align: right;
+		font-size: 40px;
+		text-align: center;
 		color: lightgray; 
 		border-radius: 10px; 
-		padding: 10px; 
-		background-color: rgba(0, 0, 0, 0.75);">
+		background-color: rgba(0, 0, 0, 0.75);
+		letter-spacing :1px;
+		padding :2px 4px;
+		line-height:50px;
+	  ">
   </div>
 
 
@@ -44,7 +49,7 @@ if (urlParams["bodyStyle"]) document.body.setAttribute("style", urlParams["bodyS
 var c;
 setInterval(
 c = function() {
-    output.innerText = moment().format(urlParams["format"] || '');
+    output.innerText = moment().format(urlParams["format"] || '📅YYYY.MM.DD  🕗hh:mm:ss ');
 }, 1000);
 c();
 
