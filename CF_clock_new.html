@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Crystal Fall Clock</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script>
+    function getUrlParams() {
+        let params = {};
+        let query = window.location.search.substring(1);
+        let pairs = query.split("&");
+
+        pairs.forEach(pair => {
+            let [key, value] = pair.split("=");
+            if (key && value) {
+                params[decodeURIComponent(key)] = decodeURIComponent(value);
+            }
+        });
+
+        return params;
+    }
+
+    function applyStyles(target, styles) {
+        if (styles) target.setAttribute("style", styles);
+    }
+
+    // 預設樣式對應表
+    const themes = {
+        "V1": "border-style:solid;background-color:rgba(0,0,0,0.75);border-radius:15px;margin:0px auto;overflow:hidden;font:bold;font-size:50px;text-align:center;font-family:monospace;color:lightgray;letter-spacing:1px;padding:2px 0px;line-height:60px;",
+        "V2": "background-color:rgba(255,255,255,0.5);color:black;font-size:40px;padding:10px;border-radius:10px;text-align:center;"
+    };
+
+    window.onload = function () {
+        const params = getUrlParams();
+        const output = document.getElementById("output");
+
+        let style = params["style"] || themes[params["theme"]] || "";
+        applyStyles(output, style);
+        applyStyles(document.body, params["bodyStyle"]);
+
+        let format = params["format"] || "YYYY.MM.DD | HH:mm:ss";
+        function updateClock() {
+            output.innerText = moment().format(format);
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    };
+  </script>
+</head>
+
+<body>
+  <div id="output"></div>
+</body>
+
+</html>
