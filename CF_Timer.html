@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Crystal Fall Clock New</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script>
+    function getUrlParams() {
+        let params = {};
+        let query = window.location.search.substring(1);
+        let pairs = query.split("&");
+
+        pairs.forEach(pair => {
+            let [key, value] = pair.split("=");
+            if (key && value) {
+                params[decodeURIComponent(key)] = decodeURIComponent(value);
+            }
+        });
+
+        return params;
+    }
+
+    function applyStyles(target, styles) {
+        if (styles) target.setAttribute("style", styles);
+    }
+
+    // 預設樣式與格式對應表
+    const themes = {
+        "V1": {
+            style: "border-style:solid;background-color:rgba(0,0,0,0.75);border-radius:15px;margin:0px auto;overflow:hidden;font:bold;font-size:50px;text-align:center;font-family:monospace;color:lightgray;letter-spacing:1px;padding:2px 0px;line-height:60px;",
+            format: "YYYY.MM.DD｜HH:mm:ss"
+        },
+        "V2": {
+            style: "border-style:solid;background-color:rgba(0,0,0,0.75);border-radius:15px;margin:0px auto;overflow:hidden;font:bold;font-size:50px;text-align:center;font-family:monospace;color:lightgray;letter-spacing:1px;padding:2px 0px;line-height:60px;",
+            format: "📆YYYY.MM.DD｜🌖HH:mm:ss"
+        },
+        "V3": {
+            style: "border-style:solid;background-color:rgba(0,0,0,0.75);border-radius:15px;margin:0px auto;overflow:hidden;font:bold;font-size:50px;text-align:center;font-family:monospace;color:lightgray;letter-spacing:1px;padding:2px 0px;line-height:60px;",
+            format: "NO[W]:YYYY.MM.DD｜T[I][M][E]:HH:mm:ss"
+        },
+        "V4": {
+            style: "border-style:solid;background-color:rgba(0,0,0,0.75);border-radius:15px;margin:0px auto;overflow:hidden;font:bold;font-size:50px;text-align:center;font-family:monospace;color:lightgray;letter-spacing:1px;padding:2px 0px;line-height:60px;",
+            format: "YYYY年MM月DD日hh時mm分ss秒"
+        },
+    };
+
+    window.onload = function () {
+        const params = getUrlParams();
+        const output = document.getElementById("output");
+
+        let theme = themes[params["theme"]] || {};
+        let style = params["style"] || theme.style || "";
+        let format = params["format"] || theme.format || "YYYY.MM.DD|HH:mm:ss";
+
+        applyStyles(output, style);
+        applyStyles(document.body, params["bodyStyle"]);
+
+        function updateClock() {
+            output.innerText = moment().format(format);
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    };
+  </script>
+</head>
+
+<body>
+  <div id="output"></div>
+</body>
+
+</html>
