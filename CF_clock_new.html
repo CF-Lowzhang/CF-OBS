@@ -43,7 +43,7 @@
 
         let theme = themes[params["theme"]] || {};
         let style = params["style"] || theme.style || "";
-        let format = params["format"] || theme.format || "YYYY.MM.DD | HH:mm:ss";
+        let format = params["format"] || theme.format || "YYYY.MM.DD|HH:mm:ss";
 
         applyStyles(output, style);
         applyStyles(document.body, params["bodyStyle"]);
